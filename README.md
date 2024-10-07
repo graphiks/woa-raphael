@@ -18,7 +18,7 @@ This project is in an early stage, all the files here have been contributed by o
 
 - [Project status](guide/status.md)
 
-- [Installation instructions](guide/install-1.md)
+- [Installation instructions](guide/1-partition.md)
 
 - [Troubleshooting](guide/troubleshooting.md)
 
