@@ -1,68 +1,52 @@
 <img align="right" src="https://raw.githubusercontent.com/graphiks/woa-raphael/main/media/raphael.png" width="350" alt="Windows 11 Running On A Redmi 9T Pro">
 
-
 # Running Windows on the Mi 9T Pro / Redmi K20 Pro
 
 ## Dualboot guide
 
-> [!NOTE] 
-> There are two methods, use whichever one suits your situation the most. Method 1 requires root, while method 2 does not.
-
 ### Prerequisites
-- [Magisk](https://github.com/topjohnwu/Magisk/releases/latest)
-
-- [ADB & Fastboot](https://developer.android.com/studio/releases/platform-tools)
-
-- [TWRP](https://github.com/graphiks/woa-raphael/releases/download/raphael-partitioning/twrp.img) (should already be installed)
-
 - [UEFI image](https://github.com/woa-raphael/woa-raphael/releases/download/raphael-uefi/xiaomi-raphael_NOSB.img)
 
-- [WOA Helper app](https://github.com/graphiks/woa-raphael/releases/download/raphael-dualboot/woa-helper-raphael.apk)
+- [WOA Helper app](https://github.com/Marius586/WoA-Helper-update/releases/tag/WOA)
 
-- [StA Installer](https://github.com/graphiks/woa-raphael/releases/download/raphael-dualboot/StA_Installer_raphael.exe)
-
-
-## Method 1 - root required
-> This method requires root. Use method 2 if you aren't rooted.
-
-This guide assumes you are rooted, if you aren't, please follow [this guide](root.md) first.
+## Setting up the dualboot app
+> This guide assumes you are rooted, if you aren't, please follow [this guide](2-root.md) first.
 
 ### Setup - Android
-- Create a folder named "UEFI" on your internal storage and place the UEFI image here
-- Download both the WOA Helper app as well as the StA Installer
-- Install and open WOA Helper and allow any root access it wants
-- Press the "BACKUP ANDROID BOOT" button, which will back up your boot image to /sdcard/boot.img (internal storage)
-- Also press the "Mount/Unmount Windows" button to mount Windows to /sdcard/Windows
-- Move/copy the StA Installer and boot.img to /sdcard/Windows
-- Return to the WOA Helper app and press "Quickboot to Windows"
+- Download and install the **WOA Helper** app, then open it and grant it root access.
+- Download the **UEFI image** and place it inside the folder named `UEFI` in your internal storage.
+- Open the WOA Helper app and use the **STA CREATOR** in **WOA TOOLBOX**.
+> [!Important]
+> If `/sdcard/Windows` is empty, your rom does not support mounting and you will have to make a boot.img backup inside the app, then copy it manually to Windows once you boot to it (for example by uploading it somewhere and then downloading it while booted into Windows). The same applies to the StA files, which are also generated in your internal storage.
+>
+> Do the same thing if the folder is read-only.
+- Press the **QUICKBOOT TO WINDOWS** button.
 
 ### Setup - Windows
-- Navigate to C:\StA_installer_raphael.exe and run it. If it doesn't work, make sure that any antivirus software is off, as it will probably not let the app run.
+> [!Tip]
+> If this is your first time booting Windows and you wish to skip the Microsoft Account login, press the **I don't have internet** button in the WiFi page, then when prompted, press the **Continue with limited setup** button.
+- Navigate to `C:\sta` and create a shortcut of **sta.exe** to your desktop, if one isn't already present
 
-##### Booting to android
-  - Run the new shortcut on your desktop as **ADMINISTRATOR**
+#### Booting to Android
+- Run the new shortcut on your desktop (you can also pin it to your start menu / taskbar for ease of access)
 
-##### Booting to windows
-  - Run the app
-  - Press "Quickboot to windows"
-  
-## Finished!
+#### Booting to Windows
+- Press **QUICKBOOT TO WINDOWS** inside the app, or use the newly created toggle in your quick settings panel
 
-
-
-## Method 2 - no root required
-> This method does not require root, but is not really recommended as it is quite slow and unreliable.
-
-> [!NOTE]
-> If you followed the main guide, you should already have done this, making the following steps obsolete.
-
-- Boot to TWRP and back up your Android boot image using the Backup button.
-> Name this backup "Android"
-
-- Flash the Windows UEFI (xiaomi-raphael_NOSB.img) to the boot partition, then make another backup of your boot image.
-> Name this backup "Windows"
-
-##### Switching between Android and Windows
-- Shutdown / reboot your device and boot to TWRP. Restore the boot backup of whichever operating system you would like to load, then reboot.
+> [!Important]
+> If you ever update or change your Android ROM, make sure to create a new **boot.img** backup (after rooting your phone!) and place it inside the **C:\ folder** in Windows, overwriting the old file.
+>
+> You can use the **BACK UP BOOT IMAGE** feature in the WOA Helper app to do so.
 
 ## Finished!
+
+
+
+
+
+
+
+
+
+
+
